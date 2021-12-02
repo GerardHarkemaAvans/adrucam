@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <link name="adrucam_base_link"/>
+
+	<joint name="adrucam_mesh_joint" type="fixed">
+	  <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+
+	  <parent link="adrucam_base_link" />
+	  <child link="adrucam_mesh_base_link" />
+	</joint>
+
+  <link name="adrucam">
+    <origin rpy="0 0 0"/>
+  </link>
+
+  <joint name="adrucam_joint" type="fixed">
+	  <origin
+      xyz="0.002 0 -0.0025"
+      rpy="1.57 3.14 1.57"/>
+	  <parent link="adrucam_base_link" />
+	  <child link="adrucam" />
+	</joint>
+
+  <link
+    name="adrucam_mesh_base_link">
+  <!--
+    <inertial>
+      <origin
+
+        xyz="-0.068 -0.0145 -0.0765"
+        rpy="0 3.14 1.57" />
+      <mass
+        value="0.00274333666096592" />
+      <inertia
+        ixx="2.4639795889765E-07"
+        ixy="4.58605734350629E-10"
+        ixz="-1.27047498122291E-11"
+        iyy="2.45774904025084E-07"
+        iyz="9.42848938487181E-11"
+        izz="4.89980954197464E-07" />
+    </inertial>
+  -->
+    <visual>
+      <origin
+        xyz="-0.068 -0.0145 -0.0765"
+        rpy="0 3.14 1.57" />
+      <geometry>
+        <mesh
+          filename="package://adrucam/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.068 -0.0145 -0.0765"
+        rpy="0 3.14 1.57" />
+      <geometry>
+        <mesh
+          filename="package://adrucam/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

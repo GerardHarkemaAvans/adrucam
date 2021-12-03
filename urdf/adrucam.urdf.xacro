@@ -23,7 +23,7 @@
   <joint name="adrucam_joint" type="fixed">
 	  <origin
       xyz="0.002 0 -0.0025"
-      rpy="1.57 3.14 1.57"/>
+      rpy="${pi/2} ${pi} ${pi/2}"/>
 	  <parent link="adrucam_base_link" />
 	  <child link="adrucam" />
 	</joint>
@@ -50,7 +50,7 @@
     <visual>
       <origin
         xyz="-0.068 -0.0145 -0.0765"
-        rpy="0 3.14 1.57" />
+        rpy="0 ${pi} ${pi/2}" />
       <geometry>
         <mesh
           filename="package://adrucam/meshes/base_link.STL" />
@@ -64,7 +64,7 @@
     <collision>
       <origin
         xyz="-0.068 -0.0145 -0.0765"
-        rpy="0 3.14 1.57" />
+        rpy="0 ${pi} ${pi/2}" />
       <geometry>
         <mesh
           filename="package://adrucam/meshes/base_link.STL" />

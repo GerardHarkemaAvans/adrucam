@@ -1,0 +1,37 @@
+<launch>
+
+	<arg name="video_device"  default="/dev/video0" />
+	<arg name="show_image"  default="true" />
+
+
+  <arg
+    name="model" />
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro --inorder $(find adrucam)/urdf/adrucam_robot.urdf.xacro" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find adrucam)/config/rviz.rviz" />
+
+	<!-- camera capture -->
+	<node
+		name="usb_cam"
+		pkg="usb_cam"
+		type="usb_cam_node"
+		output="screen" >
+		<param name="video_device" value="$(arg video_device)" />
+		<param name="image_width" value="640" />
+		<param name="image_height" value="480" />
+		<param name="pixel_format" value="yuyv" />
+		<param name="camera_frame_id" value="usb_cam" />
+		<param name="io_method" value="mmap"/>
+	</node>
+
+
+</launch>
